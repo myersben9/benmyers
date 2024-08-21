@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects - Ben Myers{% endblock %}
+
+{% block content %}
+<div id="projects-container" class="relative flex-grow h-full w-full overflow-hidden bg-cover bg-center">
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center mt-8 mb-8">
+        <h1 class="text-5xl text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            My Projects
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-2 gap-6 animate-slide-in">
+            <!-- Brig Light Art Project -->
+            <div class="bg-white bg-opacity-10 p-4 rounded shadow-lg">
+                <h2 class="text-2xl text-white font-bold mb-2">Brig Light Art</h2>
+                <p class="text-white">
+                    Brig Light Art is a full-stack e-commerce website integrated with the Stripe API to automate the updating of product prices, images, and titles directly from a database. The site also includes features to reduce the resolution of displayed images to prevent unauthorized downloads and protect the artwork.
+                </p>
+                <a href="https://briglightart.com" class="text-blue-300">Visit Brig Light Art</a>
+            </div>
+            <!-- Art Ecommerce LLC Project -->
+            <div class="bg-white bg-opacity-10 p-4 rounded shadow-lg">
+                <h2 class="text-2xl text-white font-bold mb-2">Art Ecommerce LLC</h2>
+                <p class="text-white">
+                    Art Ecommerce LLC is the business website for my e-commerce and software development company, connected to <a class="text-blue-300"href="https://briglightart.com">briglightart.com</a> and <a class="text-blue-300"href="https://lzgvisuals.com">lzgvisuals.com</a>. The site showcases the business’s offerings and serves as a hub for all professional inquiries related to e-commerce and web development services.
+                </p>
+                <a href="https://artecommercellc.com" class="text-blue-300">Visit Art Ecommerce LLC</a>
+            </div>
+            <!-- LZG Visuals Project -->
+            <div class="bg-white bg-opacity-10 p-4 rounded shadow-lg">
+                <h2 class="text-2xl text-white font-bold mb-2">LZG Visuals (Coming Soon)</h2>
+                <p class="text-white">
+                    LZG Visuals is an upcoming e-commerce website designed for a professional photographer. Similar to briglightart.com, it will be integrated with the Stripe API for automated updates of product data and include features to protect the photographer's work by reducing image resolution. Stay tuned for the launch!
+                </p>
+                <a href="#" class="text-blue-300">Visit LZG Visuals (Coming Soon)</a>
+            </div>
+            <!-- Therapy Appointment Booking Project -->
+            <div class="bg-white bg-opacity-10 p-4 rounded shadow-lg">
+                <h2 class="text-2xl text-white font-bold mb-2">Therapy Appointment Booking</h2>
+                <p class="text-white">
+                    This website allows users to schedule and book therapy appointments with ease. It includes features like appointment confirmation before booking, automated reminders, and a streamlined interface to ensure a smooth experience for both therapists and clients. The site is designed to make the process of booking therapy sessions as seamless as possible.
+                </p>
+                <a href="#" class="text-blue-300">Explore Therapy Booking (Coming Soon)</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .text-5xl {
+        font-size: 3rem; /* Larger text size for the heading */
+    }
+
+    .text-lg {
+        font-size: 1.125rem; /* Standard text size for paragraphs */
+    }
+
+    /* Adjust container padding and layout */
+    #projects-container {
+        padding: 3rem 1rem;
+    }
+
+    /* Style the project cards */
+    .bg-white.bg-opacity-10 {
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    }
+
+    .shadow-lg {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+
+    .hover\:underline:hover {
+        text-decoration: underline;
+    }
+</style>
+
+{% endblock %}

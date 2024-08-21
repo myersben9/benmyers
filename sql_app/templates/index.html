@@ -1,50 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0" />
-    <meta charset = "UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Ben Myers</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/styles.css') }}?v={{ version }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/general_styles.css') }}?v={{ version }}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends 'base.html' %}
 
-    <section id="hero">
-        <h1>Welcome to Ben Myers' Website</h1>
-        <p>Up and coming software developer</p>
-        <a href="#contact" class="btn">Get in touch</a>
-    </section>
+{% block title %}Home - Ben Myers{% endblock %}
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Insert your bio and information about your skills and experience here.</p>
-    </section>
+{% block content %}
+<div id="background-container" class="relative flex-grow h-full w-full overflow-hidden bg-cover bg-center">
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center mt-8 mb-8">
+        <p class="text-5xl text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            I'm Ben Myers, a full-stack web developer
+        </p>
+        <a href="{{ url_for('projects') }}" class="font-extrabold rounded-lg text-md font-semibold animate-slide-in">
+            See My Projects
+        </a>
+    </div>
+</div>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Showcase your projects and provide links to their repositories or live demos.</p>
-    </section>
+<style>
+    html,body {
+        animation: gradientAnimation 20s ease 1; /* Runs once */
+    }
+    @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    /* Adjust text sizes */
+    .text-5xl {
+        font-size: 3rem; /* Larger text size for the paragraph */
+    }
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Include a contact form or your preferred method of contact here.</p>
-    </section>
+    .text-md {
+        font-size: 1.25rem; /* Smaller text size for the button */
+    }
+</style>
 
-    <footer>
-        <p>&copy; 2022 Ben Myers. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

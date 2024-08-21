@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - Ben Myers{% endblock %}
+
+{% block content %}
+<div id="contact-container" class="relative flex-grow h-full w-full overflow-hidden bg-cover bg-center">
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center mt-8 mb-8">
+        <h1 class="text-5xl text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            Get in Touch
+        </h1>
+        <p class="text-lg text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            Feel free to reach out to me through the following methods:
+        </p>
+        <ul class="flex justify-center space-x-8 text-lg text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            <li>
+                <a href="mailto:myersben9@outlook.com" class="no-hover-underline">
+                    <span class="material-symbols-outlined">mail</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/myersbenj">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" width="24" height="24">
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/myersben9">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="24" height="24">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    /* Override base styles to add animation */
+
+    /* Adjust text sizes */
+    .text-5xl {
+        font-size: 3rem; /* Larger text size for the heading */
+    }
+
+    .text-lg {
+        font-size: 1.125rem; /* Standard text size for paragraphs */
+    }
+
+    /* Adjust container padding and layout */
+    #contact-container {
+        padding: 3rem 1rem;
+    }
+
+    .list-none {
+        list-style: none;
+    }
+
+    /* Remove underline transition specifically for the mail icon */
+    .no-hover-underline::after {
+        content: none; /* Disable the custom underline */
+    }
+
+    .no-hover-underline:hover {
+        text-decoration: none; /* Ensure no default underline appears on hover */
+    }
+</style>
+
+{% endblock %}

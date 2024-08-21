@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}About - Ben Myers{% endblock %}
+
+{% block content %}
+<div id="about-container" class="relative flex-grow h-full w-full overflow-hidden bg-cover bg-center">
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center mt-8 mb-8">
+        <h1 class="text-5xl text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            About Me
+        </h1>
+        <p class="text-lg text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            I am a passionate software developer with a background in modern web technologies, specializing in creating efficient and scalable web applications.
+        </p>
+        <p class="text-lg text-white mb-6 leading-relaxed max-w-xl animate-slide-in">
+            My journey began with a degree in Physics, and I transitioned into software development to apply my analytical skills to real-world problems. Over the years, I've developed strong skills in various programming languages and frameworks, including Python, JavaScript, and FastAPI.
+        </p>
+        <a href="{{ url_for('projects') }}" class="font-extrabold rounded-lg text-md font-semibold text-white animate-slide-in">
+            View My Projects
+        </a>
+    </div>
+</div>
+
+<style>
+
+    /* Adjust text sizes */
+    .text-5xl {
+        font-size: 3rem; /* Larger text size for the heading */
+    }
+
+    .text-lg {
+        font-size: 1.125rem; /* Standard text size for paragraphs */
+    }
+
+    .text-md {
+        font-size: 1.25rem; /* Smaller text size for the button */
+    }
+
+    /* Adjust container padding and layout */
+    #about-container {
+        padding: 3rem 1rem;
+    }
+</style>
+
+{% endblock %}
