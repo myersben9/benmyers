@@ -7,7 +7,9 @@ from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 import os
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
+
+# Path to the resume file
 
 from . import crud, models, schemas, utils
 from .database import SessionLocal, engine
@@ -43,6 +45,7 @@ script_path = os.path.abspath(__file__)
 script_dir = os.path.dirname(script_path)
 
 static_dir = os.path.join(script_dir, "static")
+resume_file_path = os.path.join(static_dir, "resume_BenMyers.pdf")
 templates_dir = os.path.join(script_dir, "templates")
 
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
@@ -166,4 +169,30 @@ def privacy(request: Request):
         return templates.TemplateResponse(request=request, name="privacy.html", context=context)
     except Exception as e:
         logger.error(f"Error in privacy page: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+
+@app.get("/resume/download", response_class=FileResponse, name="download_resume")
+@limiter.limit("100/minute")
+def download_resume(request: Request):
+    logger.info("Resume download requested")
+    try:
+        return FileResponse(path=resume_file_path, filename="resume_BenMyers.pdf", media_type="application/pdf")
+    except Exception as e:
+        logger.error(f"Error during resume download: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/resume/stream", response_class=StreamingResponse, name="stream_resume")
+@limiter.limit("100/minute")
+def stream_resume(request: Request):
+    logger.info("Resume stream requested")
+    try:
+        def iterfile():
+            with open(resume_file_path, mode="rb") as file_like:
+                yield from file_like
+
+        return StreamingResponse(iterfile(), media_type="application/pdf")
+    except Exception as e:
+        logger.error(f"Error during resume streaming: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
