@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}User Portal - Ben Myers{% endblock %}
+
+{% block content %}
+<div class="flex h-full">
+    <!-- Main Content Area -->
+    <div class="w-full bg-transparent p-6 text-white backdrop-filter backdrop-blur-lg shadow-lg p-6">
+        {% block portal_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

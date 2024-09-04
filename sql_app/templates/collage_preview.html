@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Collage Preview</title>
+    
+    <!-- Include Masonry CDN -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!-- Include ImagesLoaded to ensure Masonry works after images are loaded -->
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        #collagePreview {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin: auto;
+        }
+
+        .grid-item {
+            width: 300px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .buttons button:active {
+            transform: scale(0.98);
+        }
+
+        .buttons button#saveCollageButton {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Collage Preview</h1>
+
+    <!-- Collage Preview -->
+    <div id="collagePreview" class="masonry-grid">
+        <!-- Preview Images will be dynamically added here -->
+    </div>
+<!-- Button to Save or Modify the Collage -->
+    <div class="buttons">
+        <button id="saveCollageButton">Save Collage</button>
+        <button id="modifyCollageButton">Modify Collage</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const collagePreview = document.getElementById('collagePreview');
+        const images = JSON.parse(localStorage.getItem('collageImageUrls')) || [];
+
+        if (images.length > 0) {
+            images.forEach((imageSrc) => {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = imageSrc;
+                gridItem.appendChild(imgElement);
+
+                collagePreview.appendChild(gridItem);
+            });
+
+            // Initialize Masonry
+            var msnry = new Masonry(collagePreview, {
+                itemSelector: '.grid-item',
+                columnWidth: 300,
+                gutter: 10,
+                fitWidth: true
+            });
+
+            // Re-layout Masonry after all images have loaded
+            imagesLoaded(collagePreview, () => {
+                msnry.layout();
+            });
+        }
+
+        document.getElementById('modifyCollageButton').addEventListener('click', () => {
+            window.location.href = 'upload.html'; // Replace with actual upload page URL
+        });
+
+        document.getElementById('saveCollageButton').addEventListener('click', () => {
+            alert('Collage saved successfully!');
+            // Additional save logic can be added here
+        });
+    });
+</script>
+
+</body>
+</html>

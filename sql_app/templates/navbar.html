@@ -2,14 +2,23 @@
     <div class="logo text-2xl font-bold">
         <a href="{{ url_for('home') }}" class="no-underline">Ben Myers</a>
     </div>
-    <ul class="nav-links hidden md:flex space-x-10 text-lg">
-        <li><a href="{{ url_for('home') }}" class="no-underline">Home</a></li>
-        <li><a href="{{ url_for('about') }}" class="no-underline">About</a></li>
-        <li><a href="{{ url_for('projects') }}" class="no-underline">Projects</a></li>
-        <li><a href="{{ url_for('contact') }}" class="no-underline">Contact</a></li>
+    <ul class="nav-links hidden lg:flex space-x-10 text-lg">
+        {% if current_user %}
+            <li><a href="{{ url_for('user_dashboard') }}" class="no-underline">Dashboard</a></li>
+            <li><a href="{{ url_for('user_upload') }}" class="no-underline">Upload Images</a></li>
+            <li><a href="{{ url_for('user_profile') }}" class="no-underline">Profile</a></li>
+            <li><a href="{{ url_for('user_settings') }}" class="no-underline">Settings</a></li>
+            <li><a href="{{ url_for('logout') }}" class="no-underline">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('home') }}" class="no-underline">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="no-underline">About</a></li>
+            <li><a href="{{ url_for('projects') }}" class="no-underline">Projects</a></li>
+            <li><a href="{{ url_for('contact') }}" class="no-underline">Contact</a></li>
+            <li><a href="{{ url_for('login') }}" class="no-underline">Login</a></li>
+        {% endif %}
     </ul>
     <!-- Hamburger Menu for Mobile -->
-    <div class="hamburger md:hidden flex flex-col justify-between w-8 h-6 cursor-pointer">
+    <div class="hamburger lg:hidden flex flex-col justify-between w-8 h-6 cursor-pointer">
         <span class="block w-full h-1 bg-white transition-transform duration-300 ease-in-out"></span>
         <span class="block w-full h-1 bg-white transition-opacity duration-300 ease-in-out"></span>
         <span class="block w-full h-1 bg-white transition-transform duration-300 ease-in-out"></span>
@@ -17,14 +26,24 @@
 </nav>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu hidden md:hidden text-white w-full p-8 shadow-md">
+<div class="mobile-menu hidden lg:hidden text-white w-full p-8 shadow-md">
     <ul class="space-y-8 text-2xl text-center">
-        <li><a href="{{ url_for('home') }}" class="block underline-animation">Home</a></li>
-        <li><a href="{{ url_for('about') }}" class="block underline-animation">About</a></li>
-        <li><a href="{{ url_for('projects') }}" class="block underline-animation">Projects</a></li>
-        <li><a href="{{ url_for('contact') }}" class="block underline-animation">Contact</a></li>
+        {% if current_user %}
+            <li><a href="{{ url_for('user_dashboard') }}" class="block underline-animation">Dashboard</a></li>
+            <li><a href="{{ url_for('user_upload') }}" class="block underline-animation">Upload Images</a></li>
+            <li><a href="{{ url_for('user_profile') }}" class="block underline-animation">Profile</a></li>
+            <li><a href="{{ url_for('user_settings') }}" class="block underline-animation">Settings</a></li>
+            <li><a href="{{ url_for('logout') }}" class="block underline-animation">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('home') }}" class="block underline-animation">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="block underline-animation">About</a></li>
+            <li><a href="{{ url_for('projects') }}" class="block underline-animation">Projects</a></li>
+            <li><a href="{{ url_for('contact') }}" class="block underline-animation">Contact</a></li>
+            <li><a href="{{ url_for('login') }}" class="block underline-animation">Login</a></li>
+        {% endif %}
     </ul>
 </div>
+
 
 <style>
     /* Remove default underline */
@@ -35,7 +54,7 @@
     /* Custom animated underline for mobile menu */
     .underline-animation {
         position: relative;
-        display: inline-block; /* Ensure the underline is limited to text width */
+        display: inline-block;
     }
 
     .underline-animation::after {
@@ -50,13 +69,14 @@
     }
 
     .underline-animation:hover::after {
-        width: 100%; /* Underline expands to the width of the text */
+        width: 100%;
     }
 
     /* Navbar styles */
     .nav-links {
         list-style-type: none;
     }
+
     .nav-links li {
         display: inline;
     }
@@ -70,13 +90,14 @@
         transition: all 0.3s ease-in-out;
     }
 
-    /* When the hamburger is active */
     .hamburger.active span:nth-child(1) {
         transform: translateY(10px) rotate(45deg);
     }
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
         transform: translateY(-10px) rotate(-45deg);
     }
@@ -87,12 +108,12 @@
     }
 
     .navbar {
-        margin-right: 1rem; /* Adjusts padding on the left */
-        margin-left: 1rem; /* Adjusts padding on the right */
+        margin-right: 1rem;
+        margin-left: 1rem;
     }
 
     .nav-links li a {
-        margin-right: 1rem; /* Adjusts padding on the left */
+        margin-right: 1rem;
         margin-left: 1rem;
     }
 </style>

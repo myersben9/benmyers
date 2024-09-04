@@ -8,99 +8,10 @@
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
-        /* Basic gradient background without animation */
-    /* Apply styles to remove default underline */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #4b2e83, #662a6c, #2c497f, #1e606e, #1b3a4b);
-            background-size: 400% 400%; /* Adjust to make sure it covers wide pages */
-            background-attachment: fixed;
-            color: white;
-        }
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-        }
-        a {
-            color: inherit;
-            position: relative;
-            padding-bottom: 2px;
-        }
+    <!-- implement cache busting with {{version}} -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}?v={{ version }}">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
-        /* Custom animated underline */
-        a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: width 0.3s ease-in-out; /* Smooth transition for the underline */ /* Ensure no text underline appears */
-        }
-
-        /* On hover, expand the custom underline */
-        a:hover::after {
-            width: 100%; /* Expand the underline on hover */
-        }
-
-        /* Remove underline on hover state of the link itself */
-        a:hover {
-            text-decoration: none; /* Prevent default underline on hover */
-        }
-
-        .container {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        footer {
-            width: 100%;
-            background-color: #222;
-            color: #ccc;
-            padding: 20px 0;
-        }
-
-        h1, h2, p {
-            color: white;
-        }
-
-        .bg-gray-100 {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #333;
-        }
-         /* Slide in and fade in animation for elements */
-         @keyframes slideInFromBottom {
-            0% {
-                transform: translateY(50px); /* Reduced slide distance */
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        /* Background Gradient Animation */
-        .animate-slide-in {
-            animation: slideInFromBottom 0.7s ease-out forwards;
-        }
-    </style>
 </head>
 <body>
 
