@@ -1,59 +1,49 @@
-# Ben Myers Personal Website
-Website to display Full Stack capabilities with Tailwind CSS, Fast API, and Jinja2 
+# benmyers.org
 
-## User Stories
-- A user wants to look at my projects or contact me
+Personal portfolio site for Ben Myers — software engineer & ML researcher.
 
-## Current Features
-- Jinja2 templating for base, footer, and navbar templates
+Built as a fast, fully-static site with **Next.js 16 (App Router)**, **React 19**,
+**TypeScript**, and **Tailwind CSS v4**, deployed on **Vercel**.
 
-## Features(Coming Soon)
-- Secure contact form
+> The previous FastAPI + Jinja2 implementation is preserved under [`legacy/`](./legacy).
 
-## Requiremnts:
-- Git
-- Python virtual enviornment
-- PostgreSQL
+## Editing content
 
-## .env file secrets
+All site content lives in [`content/`](./content) as typed data — no need to touch
+the page components to update copy:
 
-1. **Make sure the .env file is in the root directory. You need the secrets to be filled out. Find the necessary enviornment varibles in the src/artecommercellcapi/config.py**
+| File | What it controls |
+| --- | --- |
+| `content/site.ts` | Name, role, tagline, contact info, socials, bio, hero highlights |
+| `content/experience.ts` | Work history (timeline on `/experience`) |
+| `content/projects.ts` | Projects & research (cards on `/projects` + featured on home) |
+| `content/skills.ts` | Grouped skills |
+| `content/education.ts` | Education / research background |
 
-## How to Set Up Local Environment
+Resume PDF: [`public/resume_BenMyers.pdf`](./public/resume_BenMyers.pdf).
 
-1. **Clone the repository**
+## Develop
 
-   ```bash
-   git clone https://github.com/myersben9/benmyers.git
-   ```
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
 
-2. **Open terminal and navigate to the root directory of the repo**
+## Build & deploy
 
-   ```bash
-   cd benmyers
-   ```
+```bash
+npm run build      # static production build
+npm run start      # serve the production build locally
+```
 
-3. **Download a python virtual enviornment by running**
+Deployed to Vercel; pushes to `main` ship to production at https://www.benmyers.org.
 
-   ```bash
-   python -m venv .venv
-   ```
+## Structure
 
-4. **(Mac OS/Linux) Activate the virtual enviornmnet with**
-   ```bash
-   source .venv/bin/activate
-   ```
-   **(Windows 11/10)**
-   ```bash
-   .venv/scripts/activate
-   ```
-5. **While in the root directory, make sure (.venv) pops up to the left, bottomost line of text in the terminal. Then run**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-6. **Now that dependencies are downloaded and you are in the root directory. Run**
-   ```
-   uvicorn sql_app.app:app --reload
-   ```
+```
+app/            Routes (home, about, experience, projects, contact) + SEO files
+components/     Nav, Footer, UI primitives, icons, cards
+content/        Typed site content (edit here)
+public/         Static assets (resume, etc.)
+legacy/         Archived FastAPI + Jinja2 site
+```

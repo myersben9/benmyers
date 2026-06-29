@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/*
+  Ben Myers — design system.
+  Evolves the original purple→blue gradient identity into a refined dark theme:
+  deep navy canvas, indigo→violet→cyan accent, generous space, calm contrast.
+*/
+
+@theme {
+  /* Brand canvas */
+  --color-canvas: #07070d;
+  --color-surface: #0e0e18;
+  --color-surface-2: #15151f;
+
+  /* Text */
+  --color-ink: #f4f4f6;
+  --color-ink-muted: #a1a1b3;
+  --color-ink-subtle: #8a8aa0;
+
+  /* Accent ramp (indigo → violet → cyan) */
+  --color-brand: #8b7cf6;
+  --color-brand-strong: #7c6cf0;
+  --color-violet: #a78bfa;
+  --color-cyan: #4cc9e6;
+  --color-indigo: #6366f1;
+
+  /* Hairlines */
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+
+  /* Easing + entrance animation */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fonts reference next/font CSS variables, so they must be inlined. */
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+:root {
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas);
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ambient background glows — fixed, behind everything, non-interactive. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 60rem at 12% -10%, rgba(124, 108, 240, 0.20), transparent 60%),
+    radial-gradient(50rem 50rem at 100% 0%, rgba(76, 201, 230, 0.12), transparent 55%),
+    radial-gradient(70rem 50rem at 50% 120%, rgba(99, 102, 241, 0.14), transparent 60%);
+}
+
+/* Accent gradient text utility */
+.text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-violet),
+    var(--color-brand) 45%,
+    var(--color-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hairline-bordered glass surface */
+.glass {
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(8px);
+}
+
+/* Selection */
+::selection {
+  background: rgba(139, 124, 246, 0.35);
+  color: #fff;
+}
+
+/* Focus ring — keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Entrance animation */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  opacity: 0;
+  animation: rise 0.7s var(--ease-out-soft) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-rise {
+    opacity: 1;
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
