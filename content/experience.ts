@@ -3,6 +3,23 @@ import type { Experience } from "./types";
 // Sourced directly from Ben's resume. These are verified, factual bullets.
 export const experience: Experience[] = [
   {
+    company: "CSUN Cyber-Physical Systems (CPS) Lab",
+    url: "https://www.csun.edu",
+    role: "Graduate Student Researcher",
+    location: "Northridge, CA",
+    start: "2025",
+    end: "Present",
+    current: true,
+    summary:
+      "Machine-learning research on securing smart-grid infrastructure, alongside an M.S. in Computer Engineering.",
+    bullets: [
+      "Research federated learning approaches for detecting and localizing false-data-injection attacks against power-grid state estimation.",
+      "Train models across distributed nodes without centralizing sensitive measurement data, exploring graph-based and attention-based architectures.",
+      "Build Python/PyTorch pipelines for simulating grid measurements, injecting attacks, and evaluating detection performance.",
+    ],
+    tags: ["Federated Learning", "PyTorch", "Python", "Graph Neural Networks", "Smart Grid"],
+  },
+  {
     company: "Art Ecommerce, LLC",
     url: "https://artecommercellc.com",
     role: "Founder & CEO",

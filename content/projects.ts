@@ -10,7 +10,7 @@ export const projects: Project[] = [
     blurb:
       "Federated learning models that detect and localize false-data-injection attacks on power-grid state estimation.",
     description:
-      "Ongoing machine-learning research training models across distributed nodes to flag — and pinpoint — false-data-injection (FDIA) attacks against smart-grid state estimation, without centralizing sensitive measurement data. Explores graph-based and attention-based architectures for spotting anomalous sensor readings across a network.",
+      "Graduate research in CSUN's Cyber-Physical Systems (CPS) Lab, training models across distributed nodes to flag — and pinpoint — false-data-injection (FDIA) attacks against smart-grid state estimation, without centralizing sensitive measurement data. Explores graph-based and attention-based architectures for spotting anomalous sensor readings across a network.",
     period: "2025 – Present",
     tags: ["Federated Learning", "PyTorch", "Anomaly Detection", "Graph Neural Networks", "Python"],
     links: [],
