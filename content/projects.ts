@@ -32,19 +32,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "Blissmember",
-    category: "Client",
-    blurb:
-      "High-performance Next.js marketing site with an AWS-backed image CDN.",
-    description:
-      "A fast, SEO-optimized static site built in Next.js with Headless UI and Tailwind CSS, backed by a cost-effective image-delivery pipeline on AWS S3 and CloudFront. Focused on accessibility, performance, and clean responsive UI.",
-    period: "2024",
-    tags: ["Next.js", "Tailwind CSS", "AWS S3", "CloudFront", "SEO"],
-    links: [{ label: "Live site", href: "https://blissmember.com" }],
-    featured: true,
-  },
-  {
-    name: "CogentLeadGen",
+    name: "B2B Lead-Gen Engine",
     category: "Product",
     blurb: "A TypeScript project for sourcing and qualifying B2B leads.",
     description:
@@ -72,6 +60,7 @@ export const projects: Project[] = [
     period: "2025",
     tags: ["Python", "WebSockets", "Market Data", "Open Source"],
     links: [{ label: "GitHub", href: "https://github.com/myersben9/pystock" }],
+    featured: true,
   },
   {
     name: "Muon Lifetime Detection",

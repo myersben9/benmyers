@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Experience",
   description:
-    "Professional experience of Ben Myers: Founder & CEO of Art Ecommerce LLC, frontend engineer at Blissmember, and backend engineer at Computacenter.",
+    "Professional experience of Ben Myers: graduate student researcher at CSUN's CPS Lab, Founder & CEO of Art Ecommerce LLC, and backend engineer at Computacenter.",
   path: "/experience",
 });
 

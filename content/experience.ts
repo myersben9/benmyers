@@ -37,22 +37,6 @@ export const experience: Experience[] = [
     tags: ["FastAPI", "Python", "PostgreSQL", "Stripe", "Jinja2"],
   },
   {
-    company: "Blissmember",
-    url: "https://blissmember.com",
-    role: "Frontend Software Engineer",
-    location: "Encinitas, CA",
-    start: "Aug 2024",
-    end: "Aug 2024",
-    summary:
-      "Built a fast, SEO-friendly marketing site and a cost-effective image delivery pipeline.",
-    bullets: [
-      "Implemented a high-performance static website in Next.js, improving SEO score and user experience.",
-      "Launched a CDN with AWS S3 and CloudFront for optimized, cost-effective image hosting and scalability.",
-      "Styled the frontend with Headless UI and Tailwind CSS to create responsive, accessible components.",
-    ],
-    tags: ["Next.js", "Tailwind CSS", "Headless UI", "AWS S3", "CloudFront"],
-  },
-  {
     company: "Computacenter",
     role: "Backend Software Engineer",
     location: "Remote",

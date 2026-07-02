@@ -43,7 +43,7 @@ export const socials: SocialLink[] = [
 // Short bio used on the home + about pages. First paragraph is the elevator pitch.
 export const bio: string[] = [
   "I'm a software engineer who moves comfortably across the stack — from React/Next.js front ends and FastAPI back ends to the data and machine-learning work underneath. I started in physics at UC Berkeley, where I learned to turn messy experimental data into clear answers, and carried that habit into building software that ships.",
-  "Today I split my time between shipping production web apps and machine-learning research. I founded Art Ecommerce, LLC, where I built and run a Stripe-integrated storefront end to end, and I've worked as both a frontend engineer (Blissmember) and a backend engineer (Computacenter) on real, customer-facing systems.",
+  "Today I split my time between shipping production web apps and machine-learning research. I founded Art Ecommerce, LLC, where I built and run a Stripe-integrated storefront end to end, and I've worked as both a frontend and a backend engineer on real, customer-facing systems.",
   "I'm also pursuing an M.S. in Computer Engineering at CSUN, where I'm a graduate student researcher in the Cyber-Physical Systems (CPS) Lab. My research focuses on federated learning for detecting and localizing false-data-injection attacks against power-grid state estimation — training models across distributed nodes without centralizing sensitive data. It's where my physics background, data skills, and engineering meet.",
 ];
 
